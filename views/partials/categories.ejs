@@ -1,0 +1,215 @@
+<% const categories=[]; const highlighted_categories=[]; %>
+  <!-- surbhi new -->
+
+  <div class="container my-md-4">
+    <div class="row">
+      <div class="col-lg-3 col-md-12 col-sm-12">
+        <h3>
+          Soulverse
+        </h3>
+        <h5 class="mt-1" style="font-weight: 400;">MBTI personality database</h5>
+        <div class="my-5">
+          <a class=" categoriesBtn" data-bs-toggle="collapse" href="#collapseExample" role="button"
+            aria-expanded="false" aria-controls="collapseExample">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-grid me-2"
+              viewBox="0 0 16 16">
+              <path
+                d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z" />
+            </svg>
+            Categories
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+              class="bi bi-chevron-up ms-4" viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z" />
+            </svg>
+          </a>
+          <div class="collapse mt-3 show" id="collapseExample">
+            <div class="card card-body border-0 py-1">
+              <ul class="categoryList">
+                <% var
+                  a=["Anime","Music","Politics","Historians","Gaming","Art","Comics","Science","Philosophy","Movies", "Television"
+                  ,"Literature","Business", "Religion" , "Pop Culture"
+                  ,"Internet","Technology","Gaming","Art","Comics","Comics","Science","Philosophy","Movies" ];
+                  a.forEach(function(c) { %>
+                  <% if(c=="Business" ||c=="Technology" ){ %>
+                    <li style="color: #4EDCD8; font-weight: 500;">
+                      <% } else{ %>
+                    <li>
+                      <% } %>
+                        <%= c %>
+                    </li>
+                    <% }); %>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- <div id="sidebarPersonalitiesContainer" class="shadow-container mb-4 mt-4">
+          <div class="clickable d-flex justify-content-between w-100 align-items-center ps-4 pe-4 pt-3 pb-3"
+            onclick="togglePersonalities()">
+            <p class="bodyText2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-grid me-2"
+                viewBox="0 0 16 16">
+                <path
+                  d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z" />
+              </svg>
+              Personalities
+            </p>
+            <img id="personalitiesIcon" src="https://boo.world/static/vector-down.svg" height="10px">
+          </div>
+          <div class="d-flex" id="sidebarPersonalities" style="overflow: hidden; ">
+            <div class=" w-50" id="sidebarPersonalitiesList">
+              <div class="personality-all clickable active-shrink-size adjustable-transition"
+                onmouseover="hoverPersonality('all')" onclick="window.location='/database'"
+                style="background-color: var(--accent-color);">
+                <div class="ps-4 pe-3 pt-2 pb-2 d-flex justify-content-between align-items-center w-100">
+                  <p class="bodyText2">All</p>
+                </div>
+              </div>
+              <div class="personality-introverts clickable active-shrink-size adjustable-transition"
+                onmouseover="hoverPersonality('introverts')" onclick="window.location='/database/introverts'"
+                style="background-color: var(--primary-color);">
+                <div class="ps-4 pe-3 pt-2 pb-2 d-flex justify-content-between align-items-center w-100">
+                  <p class="bodyText2">Introverts</p>
+                </div>
+              </div>
+              <div class="personality-extroverts clickable active-shrink-size adjustable-transition"
+                onmouseover="hoverPersonality('extroverts')" onclick="window.location='/database/extroverts'"
+                style="background-color: var(--primary-color);">
+                <div class="ps-4 pe-3 pt-2 pb-2 d-flex justify-content-between align-items-center w-100">
+                  <p class="bodyText2">Extroverts</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+      <div class="col-md-12 col-lg-9 col-sm-12 ps-md-4">
+        <h2>Elon Musk<span style="color: #4edcd8; font-weight: bold;"> MBTI </span></h2>
+        <div class="text-center d-flex my-3">
+          <button type="button" class="me-2 btn btn-primary primaryBtn">Business</button>
+          <button type="button" class="mx-2 btn btn-primary primaryBtn">Technology</button>
+        </div>
+        <div class="row">
+          <div class="col-xl-4 col-lg-3 col-md-12 img m-auto">
+            <img class="img-fluid circle-picture-large light-shadow m-auto"
+              style="background: #f5b2bb; box-shadow: 0px 0px 15px grey;" src="/public/static/MaskGroup.png" alt="">
+          </div>
+          <div class="col-xl-8 col-lg-9 col-md-12 ">
+            <div class="row card-container">
+              <div class="col-lg-3 col-4 imgCard p-sm-0">
+                <img class="img-fluid circle-picture-large light-shadow m-auto"
+                  style="background: #f5b2bb; box-shadow: 0px 0px 15px grey;" src="/public/static/MaskGroup.png" alt="">
+              </div>
+
+              <% var a=[ {key:"MBTI", value:"INTP"}, {key:"Enneagram", value:"5w6"} ]; a.forEach(function(c) { %>
+                <div class="col-lg-3 col-4 p-sm-0 ">
+                  <div class="smallCard">
+                    <p class="m-0">
+                      <%= c.key %>
+                    </p>
+                    <h5 class="fw-bold " style="color: #4EDCD8; align-self: center; font-size: 28px;">
+                      <%= c.value %>
+                    </h5>
+                  </div>
+                </div>
+                <% }); %>
+                  <% var a=[ {key:"Instinctual Variant",value:"so/sp"}, {key:"Tritype", value:"513"} ];
+                    a.forEach(function(c) { %>
+                    <div class="col-lg-3 col-4 p-sm-0 ">
+                      <div class="smallCard">
+                        <p class="m-0">
+                          <%= c.key %>
+                        </p>
+                        <h5 class="fw-bold " style="color: #4EDCD8; align-self: center; font-size: 28px;">
+                          <%= c.value %>
+                        </h5>
+                      </div>
+                    </div>
+                    <% }); %>
+                      <% var a=[ {key:"Socionics", value:"ILE"}, {key:"Big 5 Sloan", value:"RCOEI"}];
+                        a.forEach(function(c) { %>
+                        <div class="col-lg-3 col-4 p-sm-0 ">
+                          <div class="smallCard">
+                            <p class="m-0">
+                              <%= c.key %>
+                            </p>
+                            <h5 class="fw-bold " style="color: #4EDCD8; align-self: center; font-size: 28px;">
+                              <%= c.value %>
+                            </h5>
+                          </div>
+                        </div>
+                        <% }); %>
+                          <% var a=[ {key:"Attitudinal Psyche", value:"VLFE"} ]; a.forEach(function(c) { %>
+                            <div class="col-lg-3 col-4 p-sm-0 ">
+                              <div class="smallCard">
+                                <p class="m-0">
+                                  <%= c.key %>
+                                </p>
+                                <h5 class="fw-bold " style="color: #4EDCD8; align-self: center; font-size: 28px;">
+                                  <%= c.value %>
+                                </h5>
+                              </div>
+                            </div>
+                            <% }); %>
+                              <div class="col-lg-3 col-4 p-sm-0 ">
+                                <div class="smallCard">
+                                  <p class="m-0">
+                                    Temperament
+                                  </p>
+                                  <h5 class="fw-bold mt-4"
+                                    style="color: #4EDCD8;  align-self: center; font-size: 18px;">
+                                    Phlegmatic [Dominant]
+                                  </h5>
+                                </div>
+                              </div>
+            </div>
+          </div>
+        </div>
+        <p class="my-5">Elon Reeve Musk FRS (/ˈiːlɒn/; born June 28, 1971) is a technology entrepreneur, investor, and
+          engineer. He
+          holds South African, Canadian, and U.S. citizenship and is the founder, CEO, and lead designer of SpaceX;
+          co-founder, CEO, and product architect of Tesla, Inc.; co-founder and CEO of Neuralink; founder of The Boring
+          Company; co-founder and co-chairman of OpenAI; and co-founder of PayPal. As of February 2021, Musk's net worth
+          stands at $184 billion, making him the 2nd richest person in the world.</p>
+        <div class="d-flex justify-content-between" style="font-family: Roboto !important;">
+          <h3 class="font-weighted-bold" style="font-family: Roboto !important;">Comments</h3>
+          <button type="button" class="me-2 btn btn-primary primaryBtn" style="color: #fff; font-size: 15px;"
+            onclick="toggleCommentBox()">VOTE/COMMENT</button>
+        </div>
+        <ul class="navTab nav nav-pills my-3" id="pills-tab" role="tablist" style="font-family: Roboto !important;">
+          <li class="nav-item" role="presentation">
+            <p class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
+              type="button" role="tab" aria-controls="pills-home" aria-selected="true" onclick="filterBy('All')">All</p>
+          </li>
+          <li class="nav-item" role="presentation">
+            <p class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile"
+              type="button" role="tab" aria-controls="pills-profile" aria-selected="false" onclick="filterBy('MBTI')">
+              MBTI</p>
+          </li>
+          <li class="nav-item" role="presentation">
+            <p class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact"
+              type="button" role="tab" aria-controls="pills-contact" aria-selected="false"
+              onclick="filterBy('Enneagram')">Enneagram</p>
+          </li>
+          <li class="nav-item" role="presentation">
+            <p class="nav-link" id="pills-last-tab" data-bs-toggle="pill" data-bs-target="#pills-last" type="button"
+              role="tab" aria-controls="pills-last" aria-selected="false" onclick="filterBy('Zodiac')">Zodiac</p>
+          </li>
+        </ul>
+        <div class="d-flex mt-1 mb-4" style="font-family: Roboto !important;">
+          <button type="button" id="best-filter" class="me-2 btn primaryBtn btn-primary" style="color: white;"
+            onclick="sortBy('best')">best</button>
+          <button type="button" id="recent-filter" class="me-2 btn primaryBtn btn-white"
+            onclick="sortBy('recent')">recent</button>
+        </div>
+        <div id="comment-box"></div>
+        <div id="render-comments"></div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <!-- surbhi -->
